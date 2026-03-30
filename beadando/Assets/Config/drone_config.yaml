@@ -1,4 +1,4 @@
-# Használat: mlagents-learn config/drone_config.yaml --run-id=drone_v1
+# Használat: mlagents-learn Assets/Config/drone_config.yaml --run-id=drone_v1
 
 behaviors:
   DroneDelivery:

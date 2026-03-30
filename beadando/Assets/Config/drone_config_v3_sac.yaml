@@ -1,12 +1,12 @@
 
-# Használat: mlagents-learn config/drone_config_v3_sac.yaml --run-id=drone_v3_sac
+# Használat: mlagents-learn Assets/Config/drone_config_v3_sac.yaml --run-id=drone_v3_sac
 
 behaviors:
   DroneDelivery:
-    trainer_type: sac           
+    trainer_type: sac
     
     hyperparameters:
-      batch_size: 256
+      batch_size: 512
       buffer_size: 500000
       buffer_init_steps: 5000
       learning_rate: 3.0e-4
@@ -29,7 +29,7 @@ behaviors:
         strength: 1.0
     
     max_steps: 5000000
-    time_horizon: 512
+    time_horizon: 1000
     summary_freq: 10000
     keep_checkpoints: 5
     checkpoint_interval: 250000
