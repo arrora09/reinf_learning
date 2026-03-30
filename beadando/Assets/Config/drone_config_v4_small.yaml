@@ -1,0 +1,33 @@
+# Használat: mlagents-learn config/drone_config_v4_small.yaml --run-id=drone_v4_small
+
+behaviors:
+  DroneDelivery:
+    trainer_type: ppo
+    
+    hyperparameters:
+      batch_size: 1024
+      buffer_size: 10240
+      learning_rate: 5.0e-4        
+      learning_rate_schedule: linear
+      beta: 5.0e-3
+      epsilon: 0.3                 
+      lambd: 0.9
+      num_epoch: 3
+    
+    network_settings:
+      normalize: true
+      hidden_units: 128           
+      num_layers: 2               
+      vis_encode_type: simple
+    
+    reward_signals:
+      extrinsic:
+        gamma: 0.99
+        strength: 1.0
+    
+    max_steps: 3000000
+    time_horizon: 256
+    summary_freq: 10000
+    keep_checkpoints: 5
+    checkpoint_interval: 250000
+    threaded: true
