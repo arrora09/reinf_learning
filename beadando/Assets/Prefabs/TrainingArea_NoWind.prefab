@@ -2969,17 +2969,17 @@ MonoBehaviour:
   maxTorque: 5
   maxSpeed: 15
   dragCoefficient: 0.5
-  deliveryRadius: 2
-  deliveryReward: 10
+  deliveryRadius: 8
+  deliveryReward: 15
   collisionPenalty: -5
   timePenalty: -0.001
-  distanceRewardScale: 0.01
+  distanceRewardScale: 0.2
   stabilityRewardScale: 0.001
   aliveReward: 0.001
   maxHeight: 50
   minHeight: 1
   areaBounds: {x: 50, y: 50, z: 50}
-  stabilizationHelp: 0.5
+  stabilizationHelp: 0.8
   difficultyLevel: 0
   easyMaxSpawnDistance: 15
   mediumMaxSpawnDistance: 30

@@ -1,0 +1,56 @@
+{
+    "DroneDelivery": {
+        "checkpoints": [
+            {
+                "steps": 249981,
+                "file_path": "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-249981.onnx",
+                "reward": -2.419533705711365,
+                "creation_time": 1774970613.6061869,
+                "auxillary_file_paths": [
+                    "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-249981.pt"
+                ]
+            },
+            {
+                "steps": 499961,
+                "file_path": "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-499961.onnx",
+                "reward": 0.6997366368770599,
+                "creation_time": 1774970856.6122432,
+                "auxillary_file_paths": [
+                    "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-499961.pt"
+                ]
+            },
+            {
+                "steps": 749976,
+                "file_path": "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-749976.onnx",
+                "reward": 0.9768250249326229,
+                "creation_time": 1774971096.2590046,
+                "auxillary_file_paths": [
+                    "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-749976.pt"
+                ]
+            },
+            {
+                "steps": 790998,
+                "file_path": "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-790998.onnx",
+                "reward": 2.004509061574936,
+                "creation_time": 1774971135.9900894,
+                "auxillary_file_paths": [
+                    "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-790998.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 790998,
+            "file_path": "results\\drone_v2_large\\DroneDelivery.onnx",
+            "reward": 2.004509061574936,
+            "creation_time": 1774971135.9900894,
+            "auxillary_file_paths": [
+                "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-790998.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "1.1.0",
+        "torch_version": "1.13.1+cpu"
+    }
+}
