@@ -2,49 +2,58 @@
     "DroneDelivery": {
         "checkpoints": [
             {
-                "steps": 249981,
-                "file_path": "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-249981.onnx",
-                "reward": -2.419533705711365,
-                "creation_time": 1774970613.6061869,
+                "steps": 4249489,
+                "file_path": "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-4249489.onnx",
+                "reward": 2.0206724477536753,
+                "creation_time": 1774974721.8068502,
                 "auxillary_file_paths": [
-                    "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-249981.pt"
+                    "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-4249489.pt"
                 ]
             },
             {
-                "steps": 499961,
-                "file_path": "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-499961.onnx",
-                "reward": 0.6997366368770599,
-                "creation_time": 1774970856.6122432,
+                "steps": 4499684,
+                "file_path": "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-4499684.onnx",
+                "reward": 2.0810013808108665,
+                "creation_time": 1774974972.0599606,
                 "auxillary_file_paths": [
-                    "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-499961.pt"
+                    "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-4499684.pt"
                 ]
             },
             {
-                "steps": 749976,
-                "file_path": "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-749976.onnx",
-                "reward": 0.9768250249326229,
-                "creation_time": 1774971096.2590046,
+                "steps": 4749602,
+                "file_path": "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-4749602.onnx",
+                "reward": 1.536421565351815,
+                "creation_time": 1774975224.4105713,
                 "auxillary_file_paths": [
-                    "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-749976.pt"
+                    "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-4749602.pt"
                 ]
             },
             {
-                "steps": 790998,
-                "file_path": "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-790998.onnx",
-                "reward": 2.004509061574936,
-                "creation_time": 1774971135.9900894,
+                "steps": 4999447,
+                "file_path": "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-4999447.onnx",
+                "reward": 1.798427420227151,
+                "creation_time": 1774975482.5484607,
                 "auxillary_file_paths": [
-                    "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-790998.pt"
+                    "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-4999447.pt"
+                ]
+            },
+            {
+                "steps": 5000447,
+                "file_path": "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-5000447.onnx",
+                "reward": 2.0583722373239355,
+                "creation_time": 1774975482.7085462,
+                "auxillary_file_paths": [
+                    "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-5000447.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 790998,
+            "steps": 5000447,
             "file_path": "results\\drone_v2_large\\DroneDelivery.onnx",
-            "reward": 2.004509061574936,
-            "creation_time": 1774971135.9900894,
+            "reward": 2.0583722373239355,
+            "creation_time": 1774975482.7085462,
             "auxillary_file_paths": [
-                "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-790998.pt"
+                "results\\drone_v2_large\\DroneDelivery\\DroneDelivery-5000447.pt"
             ]
         }
     },

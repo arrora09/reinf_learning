@@ -82,7 +82,7 @@ checkpoint_settings:
   run_id: drone_v2_large
   initialize_from: null
   load_model: false
-  resume: false
+  resume: true
   force: false
   train_model: false
   inference: false
