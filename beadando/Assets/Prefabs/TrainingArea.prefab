@@ -2039,7 +2039,7 @@ GameObject:
   - component: {fileID: 6749447599061138579}
   - component: {fileID: 3169638398871303125}
   m_Layer: 0
-  m_Name: TrainingArea_NoWind
+  m_Name: TrainingArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2899,13 +2899,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2341009631346661775}
   - component: {fileID: 398982545323634971}
-  - component: {fileID: 1323387881125224033}
   - component: {fileID: 7207376630577486633}
   - component: {fileID: 744453291710035694}
   - component: {fileID: 6702941552433690062}
   - component: {fileID: 3123614889608516850}
   - component: {fileID: 3947289490157119603}
   - component: {fileID: 5707004432807025755}
+  - component: {fileID: 5021081606759218162}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -2947,43 +2947,6 @@ MonoBehaviour:
   showParticles: 1
   turbulenceStrength: 0.5
   turbulenceFrequency: 1
---- !u!114 &1323387881125224033
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8977853317053159600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 919b3285b81b51f4c89c7bb365e57670, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agentParameters:
-    maxStep: 0
-  hasUpgradedFromAgentParameters: 1
-  MaxStep: 0
-  deliveryTarget: {fileID: 1119504850113568989}
-  envManager: {fileID: 3169638398871303125}
-  maxThrust: 20
-  maxTorque: 5
-  maxSpeed: 15
-  dragCoefficient: 0.5
-  deliveryRadius: 8
-  deliveryReward: 15
-  collisionPenalty: -5
-  timePenalty: -0.001
-  distanceRewardScale: 0.2
-  stabilityRewardScale: 0.001
-  aliveReward: 0.001
-  maxHeight: 50
-  minHeight: 1
-  areaBounds: {x: 50, y: 50, z: 50}
-  stabilizationHelp: 0.8
-  difficultyLevel: 0
-  easyMaxSpawnDistance: 15
-  mediumMaxSpawnDistance: 30
-  hardMaxSpawnDistance: 50
 --- !u!54 &7207376630577486633
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3099,7 +3062,7 @@ MonoBehaviour:
   m_RaysPerDirection: 6
   m_MaxRayDegrees: 180
   m_SphereCastRadius: 0.5
-  m_RayLength: 30
+  m_RayLength: 15
   m_RayLayerMask:
     serializedVersion: 2
     m_Bits: 4294967291
@@ -3122,6 +3085,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!114 &5021081606759218162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977853317053159600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 919b3285b81b51f4c89c7bb365e57670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  deliveryTarget: {fileID: 1119504850113568989}
+  envManager: {fileID: 3169638398871303125}
+  maxThrust: 12
+  maxTorque: 0.5
+  maxSpeed: 5
+  dragCoefficient: 0.5
+  deliveryRadius: 2
+  deliveryReward: 25
+  collisionPenalty: -1.5
+  timePenalty: -0.0002
+  distanceRewardScale: 0.5
+  stabilityRewardScale: 0.001
+  aliveReward: 0.001
+  maxHeight: 50
+  minHeight: 1
+  areaBounds: {x: 50, y: 50, z: 50}
+  stabilizationHelp: 0.3
+  difficultyLevel: 0
+  easyMaxSpawnDistance: 15
+  mediumMaxSpawnDistance: 25
+  hardMaxSpawnDistance: 40
 --- !u!1 &9170873426131928812
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,22 +1,18 @@
 using UnityEngine;
 
-/// <summary>
-/// Mozgó akadály - random útvonalakon patrol, vagy a drón felé közeledik.
-/// Ütközésnél az epizód véget ér büntetéssel.
-/// </summary>
 public class MovingObstacle : MonoBehaviour
 {
     public enum MovementPattern
     {
-        Linear,       // Egyenes vonalban, irányt váltva
-        Circular,     // Körkörös mozgás
-        Sinusoidal,   // Hullámzó mozgás
-        Random        // Random irányváltások
+        Linear,
+        Circular,
+        Sinusoidal,
+        Random
     }
 
     [Header("Movement")]
-    public float speed = 5f;
-    public float rotationSpeed = 2f;
+    public float speed = .2f;
+    public float rotationSpeed = .2f;
     public MovementPattern pattern = MovementPattern.Linear;
 
     private Vector3 areaBounds;
@@ -27,19 +23,14 @@ public class MovingObstacle : MonoBehaviour
     private float sinTime;
     private float directionChangeTimer;
 
-    /// <summary>
-    /// Inicializálás random paraméterekkel
-    /// </summary>
     public void Initialize(Vector3 bounds)
     {
         areaBounds = bounds;
-        speed = UnityEngine.Random.Range(2f, 8f);
+        speed = UnityEngine.Random.Range(0.1f, 0.5f);
         centerPoint = transform.localPosition;
 
-        // Random mozgási minta
         pattern = (MovementPattern)UnityEngine.Random.Range(0, 4);
 
-        // Kezdő irány
         moveDirection = new Vector3(
             UnityEngine.Random.Range(-1f, 1f),
             UnityEngine.Random.Range(-0.3f, 0.3f),
@@ -69,7 +60,6 @@ public class MovingObstacle : MonoBehaviour
                 break;
         }
 
-        // Boundary check - visszafordulás ha kimenne
         ClampPosition();
     }
 
@@ -77,7 +67,6 @@ public class MovingObstacle : MonoBehaviour
     {
         transform.localPosition += moveDirection * speed * Time.deltaTime;
 
-        // Irányváltás ha a határ közel
         Vector3 pos = transform.localPosition;
         if (Mathf.Abs(pos.x) > areaBounds.x * 0.4f)
             moveDirection.x *= -1f;
@@ -86,7 +75,6 @@ public class MovingObstacle : MonoBehaviour
         if (Mathf.Abs(pos.z) > areaBounds.z * 0.4f)
             moveDirection.z *= -1f;
 
-        // Forgatás a mozgás irányba
         if (moveDirection != Vector3.zero)
         {
             Quaternion targetRot = Quaternion.LookRotation(moveDirection);
@@ -102,13 +90,12 @@ public class MovingObstacle : MonoBehaviour
 
         Vector3 newPos = centerPoint + new Vector3(
             Mathf.Cos(rad) * circleRadius,
-            Mathf.Sin(rad * 0.5f) * 3f, // enyhe vertikális hullámzás
+            Mathf.Sin(rad * 0.5f) * 3f,
             Mathf.Sin(rad) * circleRadius
         );
 
         transform.localPosition = newPos;
 
-        // Forgatás a mozgás irányba
         Vector3 tangent = new Vector3(
             -Mathf.Sin(rad),
             Mathf.Cos(rad * 0.5f) * 0.5f,
@@ -132,11 +119,10 @@ public class MovingObstacle : MonoBehaviour
 
         transform.localPosition = centerPoint + offset;
 
-        // Reset ha túl messzire megy
         if (Mathf.Abs(transform.localPosition.z - centerPoint.z) > areaBounds.z * 0.4f)
         {
             sinTime = 0f;
-            speed *= -1f; // Irányt vált
+            speed *= -1f;
         }
     }
 
@@ -151,7 +137,7 @@ public class MovingObstacle : MonoBehaviour
                 UnityEngine.Random.Range(-1f, 1f)
             ).normalized;
 
-            speed = UnityEngine.Random.Range(2f, 8f);
+            speed = UnityEngine.Random.Range(0.1f, 0.5f);
             directionChangeTimer = UnityEngine.Random.Range(1f, 4f);
         }
 

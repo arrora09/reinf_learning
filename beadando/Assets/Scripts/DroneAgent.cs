@@ -10,13 +10,13 @@ public class DroneAgent : Agent
     public EnvironmentManager envManager;
 
     [Header("Drone Physics")]
-    public float maxThrust = 20f;
-    public float maxTorque = 3f;
-    public float maxSpeed = 15f;
+    public float maxThrust = 12f;
+    public float maxTorque = .5f;
+    public float maxSpeed = 5f;
     public float dragCoefficient = 0.5f;
 
     [Header("Reward Settings")]
-    public float deliveryRadius = 10.0f;
+    public float deliveryRadius = 2f;
     public float deliveryReward = 25.0f;
     public float collisionPenalty = -1.5f;
     public float timePenalty = -0.0002f;
@@ -32,7 +32,7 @@ public class DroneAgent : Agent
     [Header("Auto-Stabilization")]
     [Tooltip("Mennyire segít az ágenst egyenesen tartani. 1.0 = erős segítség, 0.0 = nincs.")]
     [Range(0f, 1f)]
-    public float stabilizationHelp = 0.9f;
+    public float stabilizationHelp = 0.3f;
 
     [Header("Difficulty (Nehézség)")]
     [Tooltip("0 = könnyű (közeli target, nincs akadály), 1 = közepes, 2 = nehéz")]
@@ -40,7 +40,7 @@ public class DroneAgent : Agent
     public int difficultyLevel = 0;
 
     [Header("Spawn Settings")]
-    public float easyMaxSpawnDistance = 6f;
+    public float easyMaxSpawnDistance = 15f;
     public float mediumMaxSpawnDistance = 25f;
     public float hardMaxSpawnDistance = 40f;
 
@@ -65,14 +65,14 @@ public class DroneAgent : Agent
 
         if (MaxStep == 0)
         {
-            MaxStep = 5000;
+            MaxStep = 10000;
         }
 
         if (envManager == null)
-            Debug.LogError("[DroneAgent] HIBA: envManager NINCS BEÁLLÍTVA!");
+            Debug.LogError("[DroneAgent] envManager NINCS BEÁLLÍTVA!");
 
         if (deliveryTarget == null)
-            Debug.LogError("[DroneAgent] HIBA: deliveryTarget NINCS BEÁLLÍTVA!");
+            Debug.LogError("[DroneAgent] deliveryTarget NINCS BEÁLLÍTVA!");
 
         Debug.Log($"[DroneAgent] Inicializálva. Nehézség: {difficultyLevel}, " +
                   $"Stabilizáció: {stabilizationHelp}, MaxStep: {MaxStep}");
@@ -80,9 +80,10 @@ public class DroneAgent : Agent
 
     public override void OnEpisodeBegin()
     {
+        
         episodeCount++;
 
-        if (episodeCount >= 30)
+        if (episodeCount >= 50 )
         {
             float successRate = (float)successCount / episodeCount;
             Debug.Log($"[DroneAgent] Level {difficultyLevel} - Sikerráta: {successRate:P0} ({successCount}/{episodeCount})");
@@ -126,7 +127,7 @@ public class DroneAgent : Agent
 
         transform.localPosition = new Vector3(
             Random.Range(-spawnRange, spawnRange),
-            Random.Range(10f, 20f),
+            Random.Range(10f, 30f),
             Random.Range(-spawnRange, spawnRange)
         );
         transform.localRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
@@ -134,14 +135,39 @@ public class DroneAgent : Agent
         if (deliveryTarget != null)
         {
             Vector3 dronePos = transform.localPosition;
-            Vector2 randomDir2D = Random.insideUnitCircle.normalized;
-            float dist = Random.Range(5f, targetRange);
 
-            deliveryTarget.localPosition = new Vector3(
-                Mathf.Clamp(dronePos.x + randomDir2D.x * dist, -areaBounds.x * 0.4f, areaBounds.x * 0.4f),
-                Mathf.Clamp(dronePos.y + Random.Range(-3f, 3f), 5f, maxHeight * 0.4f),
-                Mathf.Clamp(dronePos.z + randomDir2D.y * dist, -areaBounds.z * 0.4f, areaBounds.z * 0.4f)
-            );
+            for (int attempt = 0; attempt < 50; attempt++)
+            {
+                Vector2 randomDir2D = Random.insideUnitCircle.normalized;
+                float dist = Random.Range(5f, targetRange);
+
+                Vector3 candidatePos = new Vector3(
+                    Mathf.Clamp(dronePos.x + randomDir2D.x * dist, -areaBounds.x * 0.4f, areaBounds.x * 0.4f),
+                    Mathf.Clamp(dronePos.y + Random.Range(-10f, 10f), 5f, maxHeight * 0.8f),
+                    Mathf.Clamp(dronePos.z + randomDir2D.y * dist, -areaBounds.z * 0.4f, areaBounds.z * 0.4f)
+                );
+
+                Vector3 worldPos = transform.parent != null
+                    ? transform.parent.TransformPoint(candidatePos)
+                    : candidatePos;
+
+                float candidateDist = Vector3.Distance(dronePos, candidatePos);
+                if (!Physics.CheckSphere(worldPos, deliveryRadius * 0.5f) && candidateDist > 10f)
+                {
+                    deliveryTarget.localPosition = candidatePos;
+                    break;
+                }
+
+                if (attempt == 49)
+                {
+                    Vector2 fallbackDir = Random.insideUnitCircle.normalized;
+                    deliveryTarget.localPosition = new Vector3(
+                        dronePos.x + fallbackDir.x * 10f,
+                        Mathf.Max(dronePos.y + 5f, 25f),
+                        dronePos.z + fallbackDir.y * 10f
+                    );
+                }
+            }
         }
 
         if (envManager != null)
@@ -150,20 +176,20 @@ public class DroneAgent : Agent
             {
                 case 0:
                     envManager.minObstacles = 0;
-                    envManager.maxObstacles = 2;
+                    envManager.maxObstacles = 1;
                     envManager.enableWind = false;
                     break;
                 case 1:
                     envManager.minObstacles = 1;
-                    envManager.maxObstacles = 3;
+                    envManager.maxObstacles = 2;
                     envManager.enableWind = true;
-                    envManager.maxWindForce = 1.5f;
+                    envManager.maxWindForce = .2f;
                     break;
                 default:
                     envManager.minObstacles = 2;
-                    envManager.maxObstacles = 4;
+                    envManager.maxObstacles = 3;
                     envManager.enableWind = true;
-                    envManager.maxWindForce = 3f;
+                    envManager.maxWindForce = .5f;
                     break;
             }
             envManager.ResetEnvironment();
@@ -206,8 +232,11 @@ public class DroneAgent : Agent
         float roll = Mathf.Clamp(ca[3], -1f, 1f);
 
         float baseThrust = gravityCompensation;
-        float extraThrust = thrust * maxThrust * 0.5f;
+        float extraThrust = thrust * maxThrust * 0.05f;
         rb.AddForce(Vector3.up * (baseThrust + extraThrust), ForceMode.Force);
+
+        rb.AddForce(transform.forward * -pitch * maxThrust * 0.05f, ForceMode.Force);
+        rb.AddForce(transform.right * roll * maxThrust * 0.05f, ForceMode.Force);
 
         Vector3 torque = new Vector3(pitch, yaw, roll) * maxTorque;
         rb.AddRelativeTorque(torque, ForceMode.Force);
@@ -249,7 +278,7 @@ public class DroneAgent : Agent
 
         AddReward(timePenalty);
 
-        if (currentDistance < deliveryRadius)
+        if (currentDistance < deliveryRadius && stepCount > 50)
         {
             float timeBonus = Mathf.Max(0f, 1f - (float)stepCount / MaxStep) * 5f;
             AddReward(deliveryReward + timeBonus);
@@ -283,8 +312,8 @@ public class DroneAgent : Agent
         if (Input.GetKey(KeyCode.E)) ca[2] = 1f;
         if (Input.GetKey(KeyCode.Q)) ca[2] = -1f;
         ca[3] = 0f;
-        if (Input.GetKey(KeyCode.A)) ca[3] = 1f;
-        if (Input.GetKey(KeyCode.D)) ca[3] = -1f;
+        if (Input.GetKey(KeyCode.A)) ca[3] = -1f;
+        if (Input.GetKey(KeyCode.D)) ca[3] = 1f;
     }
 
     private void OnCollisionEnter(Collision collision)

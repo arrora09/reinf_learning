@@ -25,8 +25,8 @@ public class EnvironmentManager : MonoBehaviour
 
     [Header("Wind")]
     public bool enableWind = true;
-    public float maxWindForce = 3f;
-    public float windChangeInterval = 5f;
+    public float maxWindForce = .5f;
+    public float windChangeInterval = 10f;
 
     private List<GameObject> activeObstacles = new List<GameObject>();
     private List<GameObject> activeBuildings = new List<GameObject>();
@@ -57,7 +57,6 @@ public class EnvironmentManager : MonoBehaviour
 
     public void ResetEnvironment()
     {
-        PlaceTarget();
         RespawnObstacles();
         RespawnBuildings();
         RandomizeWind();

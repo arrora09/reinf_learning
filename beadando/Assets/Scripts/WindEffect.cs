@@ -30,6 +30,8 @@ public class WindEffect : MonoBehaviour
     {
         if (rb == null || envManager == null) return;
 
+        if (!envManager.enableWind) return;
+
         Vector3 windForce = envManager.GetWindForce() * windMultiplier;
 
         float time = Time.time * turbulenceFrequency;
