@@ -2905,7 +2905,7 @@ GameObject:
   - component: {fileID: 3123614889608516850}
   - component: {fileID: 3947289490157119603}
   - component: {fileID: 5707004432807025755}
-  - component: {fileID: 5021081606759218162}
+  - component: {fileID: 1820294619917210379}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -3085,7 +3085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
---- !u!114 &5021081606759218162
+--- !u!114 &1820294619917210379
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

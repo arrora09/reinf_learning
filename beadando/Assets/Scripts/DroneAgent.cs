@@ -65,7 +65,7 @@ public class DroneAgent : Agent
 
         if (MaxStep == 0)
         {
-            MaxStep = 10000;
+            MaxStep = 5000;
         }
 
         if (envManager == null)
@@ -99,7 +99,7 @@ public class DroneAgent : Agent
                 Debug.Log($"[DroneAgent] >>> NEHÉZSÉG NÖVELVE → Level 2!");
             }
 
-            episodeCount = 0;
+            episodeCount = 1;
             successCount = 0;
         }
 
