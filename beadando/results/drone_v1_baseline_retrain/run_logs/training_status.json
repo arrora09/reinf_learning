@@ -2,58 +2,58 @@
     "DroneDelivery": {
         "checkpoints": [
             {
-                "steps": 4249982,
-                "file_path": "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4249982.onnx",
-                "reward": 46.13781441582574,
-                "creation_time": 1775636530.804438,
+                "steps": 4249692,
+                "file_path": "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4249692.onnx",
+                "reward": 41.49205510616302,
+                "creation_time": 1775654046.8625715,
                 "auxillary_file_paths": [
-                    "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4249982.pt"
+                    "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4249692.pt"
                 ]
             },
             {
-                "steps": 4499914,
-                "file_path": "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4499914.onnx",
-                "reward": 41.41800664972376,
-                "creation_time": 1775636679.507584,
+                "steps": 4499975,
+                "file_path": "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4499975.onnx",
+                "reward": 41.93265658455926,
+                "creation_time": 1775654176.1167116,
                 "auxillary_file_paths": [
-                    "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4499914.pt"
+                    "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4499975.pt"
                 ]
             },
             {
-                "steps": 4749910,
-                "file_path": "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4749910.onnx",
-                "reward": 43.62165382385254,
-                "creation_time": 1775636826.9775453,
+                "steps": 4749797,
+                "file_path": "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4749797.onnx",
+                "reward": 44.07796239852905,
+                "creation_time": 1775654316.224733,
                 "auxillary_file_paths": [
-                    "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4749910.pt"
+                    "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4749797.pt"
                 ]
             },
             {
-                "steps": 4999970,
-                "file_path": "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4999970.onnx",
-                "reward": 39.363815195155595,
-                "creation_time": 1775636974.0847528,
+                "steps": 4999862,
+                "file_path": "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4999862.onnx",
+                "reward": 45.577593591478134,
+                "creation_time": 1775654471.3597672,
                 "auxillary_file_paths": [
-                    "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4999970.pt"
+                    "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-4999862.pt"
                 ]
             },
             {
-                "steps": 5000472,
-                "file_path": "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-5000472.onnx",
-                "reward": 39.80994633327831,
-                "creation_time": 1775636974.174802,
+                "steps": 5000283,
+                "file_path": "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-5000283.onnx",
+                "reward": 45.994678020477295,
+                "creation_time": 1775654471.435781,
                 "auxillary_file_paths": [
-                    "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-5000472.pt"
+                    "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-5000283.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 5000472,
+            "steps": 5000283,
             "file_path": "results\\drone_v1_baseline_retrain\\DroneDelivery.onnx",
-            "reward": 39.80994633327831,
-            "creation_time": 1775636974.174802,
+            "reward": 45.994678020477295,
+            "creation_time": 1775654471.435781,
             "auxillary_file_paths": [
-                "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-5000472.pt"
+                "results\\drone_v1_baseline_retrain\\DroneDelivery\\DroneDelivery-5000283.pt"
             ]
         }
     },
