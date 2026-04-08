@@ -308,7 +308,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!1001 &1427754255
+--- !u!1001 &1604453456
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -371,4 +371,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 830632992}
   - {fileID: 705507995}
-  - {fileID: 1427754255}
+  - {fileID: 1604453456}
