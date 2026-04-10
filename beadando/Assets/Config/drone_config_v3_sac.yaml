@@ -1,4 +1,3 @@
-
 # Használat: mlagents-learn Assets/Config/drone_config_v3_sac.yaml --run-id=drone_v3_sac
 
 behaviors:
