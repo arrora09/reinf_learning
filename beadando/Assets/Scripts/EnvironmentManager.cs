@@ -105,7 +105,6 @@ public class EnvironmentManager : MonoBehaviour
         }
 
         int count = Random.Range(minObstacles, maxObstacles + 1);
-        //Debug.Log($"[EnvironmentManager] {count} akadály spawolása...");
 
         for (int i = 0; i < count; i++)
         {
@@ -133,7 +132,6 @@ public class EnvironmentManager : MonoBehaviour
             activeObstacles.Add(obs);
         }
 
-        //Debug.Log($"[EnvironmentManager] {activeObstacles.Count} akadály sikeresen létrehozva.");
     }
 
     private void RespawnBuildings()
